@@ -76,9 +76,6 @@ install: build
 
 	# Add here commands to install the package into debian/tmp
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
-	mkdir -p $(CURDIR)/debian/tmp/usr/share/doc/libbrahe-dev/examples
-	rm -f $(CURDIR)/debian/tmp/usr/share/doc/libbrahe-dev/examples/*.o
-
 
 # Build architecture-independent files here.
 binary-indep: build install
@@ -90,7 +87,6 @@ binary-arch: build install
 	dh_testroot
 	dh_installchangelogs ChangeLog
 	dh_installdocs
-	dh_installexamples
 #	dh_installdebconf	
 	dh_installman
 	dh_install
