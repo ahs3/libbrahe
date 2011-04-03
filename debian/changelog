@@ -1,5 +1,5 @@
 libbrahe (1.2.0-1) unstable; urgency=low
 
-  * Initial packaging
+  * Closes: Bug#578326 -- Initial packaging
 
  -- Al Stone <ahs3@debian.org>  Sun, 03 Apr 2011 17:24:49 -0600
