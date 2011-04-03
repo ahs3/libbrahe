@@ -1,0 +1,2 @@
+debian/tmp/usr/lib/lib*.so.* usr/lib
+debian/shlibs DEBIAN

@@ -1,0 +1,44 @@
+Source: libbrahe
+Priority: optional
+Maintainer: Al Stone <ahs3@debian.org>
+Build-Depends: debhelper (>= 4.0.0), doxygen
+Standards-Version: 3.7.2
+
+Package: libbrahe-dev
+Section: libdevel
+Architecture: any
+Depends: libbrahe-1.2-0 (= ${binary:Version})
+Description: a heterogeneous C library of numeric functions
+ This library provides:
+ .
+   * a function for rounding floating point values to a specific number
+     of digits
+   * several pseudo-random number generators, including the Mersenne
+     Twister, various algorithms by Marsaglia, and ISAAC
+   * least common multiple and greatest common denominator functions
+   * a few trigonometry functions for finding the inversions of hyperbolic
+     sine, cosine, and tangent
+ .
+ This library is also used by libevocosm, which is in turn the 
+ foundation for Acovea, used to determine optimal compiler optimizations
+ .
+ This package contains the files needed to develop code using libbrahe.
+
+Package: libbrahe-1.2-0
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: a heterogeneous C library of numeric functions
+ This library provides:
+ .
+   * a function for rounding floating point values to a specific number
+     of digits
+   * several pseudo-random number generators, including the Mersenne
+     Twister, various algorithms by Marsaglia, and ISAAC
+   * least common multiple and greatest common denominator functions
+   * a few trigonometry functions for finding the inversions of hyperbolic
+     sine, cosine, and tangent
+ .
+ This library is also used by libevocosm, which is in turn the 
+ foundation for Acovea, used to determine optimal compiler optimizations
+
