@@ -1,0 +1,27 @@
+2009-11-18 -- version 1.2.0
+    * Added simple FFT function
+    
+    * improved const correctness
+    
+    * Added Doxygen documentation
+    
+    * Moved to GPL 3
+    
+    * Added moving average function; more statistical stuff planned
+    
+    * Renamed "Greatest Common Denominator" to "Greatest Common Factor"
+
+    * Removed distribution of Visual Studio projects, due to incompatability with C99
+
+2007-09-27 -- version 1.1.0
+
+    *   Added ISAAC, a fast cryptographic random number generator
+
+    *   Fixed bug in using supplied random seed on Windows systems
+
+    *   Finished the trigonometry and rounding tests
+
+2006-09-10 -- version 1.0.0
+
+    *   Initial release
+
