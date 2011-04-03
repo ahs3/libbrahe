@@ -99,8 +99,8 @@ binary-arch: build install
 	dh_makeshlibs
 	dh_installdeb
 	rm -f debian/libbrahe-dev/DEBIAN/shlibs
-	install -m644 debian/shlibs debian/libbrahe-1.1-0/DEBIAN/shlibs
-	dh_shlibdeps -plibbrahe-1.1-0
+	install -m644 debian/shlibs debian/libbrahe-1.2-0/DEBIAN/shlibs
+	dh_shlibdeps -plibbrahe-1.2-0
 	dh_shlibdeps -plibbrahe-dev
 	dh_gencontrol
 	dh_md5sums
