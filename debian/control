@@ -2,7 +2,7 @@ Source: libbrahe
 Section: devel
 Priority: optional
 Maintainer: Al Stone <ahs3@debian.org>
-Build-Depends: debhelper (>= 8.0.0), doxygen
+Build-Depends: debhelper (>= 8.0.0), doxygen, quilt
 Standards-Version: 3.9.1
 
 Package: libbrahe-dev
