@@ -1,13 +1,14 @@
 Source: libbrahe
+Section: devel
 Priority: optional
 Maintainer: Al Stone <ahs3@debian.org>
-Build-Depends: debhelper (>= 4.0.0), doxygen
-Standards-Version: 3.7.2
+Build-Depends: debhelper (>= 8.0.0), doxygen
+Standards-Version: 3.9.1
 
 Package: libbrahe-dev
 Section: libdevel
 Architecture: any
-Depends: libbrahe-1.2-2 (= ${binary:Version})
+Depends: libbrahe-1.2-2 (= ${binary:Version}), ${misc:Depends}
 Description: a heterogeneous C library of numeric functions
  This library provides:
  .
