@@ -12,6 +12,6 @@ aclocal 2> /dev/null
 libtoolize --force
 automake --foreign --copy --add-missing
 autoconf
-./configure
+./configure $1
 #
 #-- end

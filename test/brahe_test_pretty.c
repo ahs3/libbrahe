@@ -53,20 +53,25 @@
 #include "../src/mathtools.h"
 
 #include <stdio.h>
+#include <stdlib.h>
+
+#define N 10
+int64_t x[] = { 0, -1, 2, 11, 500, 97, -10263, 1768372193, 0xA1B2C3D4E5F6, 1223372036854775808 };
 
 int main(int argc, char * argv[])
 {
-    int i;
-    double a [] = { 1.0, 1.33333333333333333, 1.5 };
+    char * c;
+    char * t;
 
-    for (i = 0; i < 3; ++i)
+    for (int i = 0; i < N; ++i)
     {
-        printf("atanh(tanh(%11.8f)) = %11.8f\n",  a[i], brahe_atanh(tanh(a[i])));
-        printf("atanh(tanh(%11.8f)) = %11.8f\n", -a[i], brahe_atanh(tanh(-a[i])));
-        printf("asinh(sinh(%11.8f)) = %11.8f\n",  a[i], brahe_asinh(sinh(a[i])));
-        printf("asinh(sinh(%11.8f)) = %11.8f\n", -a[i], brahe_asinh(sinh(-a[i])));
-        printf("acosh(cosh(%11.8f)) = %11.8f\n",  a[i], brahe_acosh(cosh(a[i])));
-        printf("acosh(cosh(%11.8f)) = %11.8f\n", -a[i], brahe_acosh(cosh(-a[i])));
+        c = brahe_pretty_int(x[i], BRAHE_PRETTY_COMMA);
+        t = brahe_pretty_int(x[i], BRAHE_PRETTY_TEXT);
+
+        printf("\n%ld\n%s\n%s\n",x[i], c, t);
+
+        free(t);
+        free(c);
     }
 
     return 0;
