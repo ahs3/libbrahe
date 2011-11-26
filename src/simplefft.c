@@ -1,40 +1,54 @@
-//  ---------------------------------------------------------------------
-//  This file is part of Brahe, a heterogenous library of mathematical
-//  and scientific functions written in C.
-//
-//  Brahe may be licensed either under the GNU General Public License v3
-//  or a closed license from the author. See below for more information.
-//
-//  simplefft.c
-//
-//  A simple real-to-real FFT; this is not meant to compete with or
-//	replace dedicated libraries such as FFTW.
-//
-//  Copyright 2009 Scott Robert Ladd
-//  ---------------------------------------------------------------------
-//
-//  Brahe is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
-//  ---------------------------------------------------------------------
-//  Closed-source licenses are available from the author at reasonable
-//  prices.
-//  ---------------------------------------------------------------------
-//  
-//  For more information on this software package, please visit
-//  Scott's web site, Coyote Gulch Productions, at:
-//
-//      http://www.coyotegulch.com
+/*
+    Brahe is a heterogenous collection of mathematical tools,  written in Standard C.
+
+    Copyright 2011 Scott Robert Ladd. All rights reserved.
+
+    Brahe is user-supported open source software. Its continued development is dependent
+    on financial support from the community. You can provide funding by visiting the Brahe
+    website at:
+
+        http://www.coyotegulch.com
+
+    You may license Brahe in one of two fashions:
+
+    1) Simplified BSD License (FreeBSD License)
+
+    Redistribution and use in source and binary forms, with or without modification, are
+    permitted provided that the following conditions are met:
+
+    1.  Redistributions of source code must retain the above copyright notice, this list of
+        conditions and the following disclaimer.
+
+    2.  Redistributions in binary form must reproduce the above copyright notice, this list
+        of conditions and the following disclaimer in the documentation and/or other materials
+        provided with the distribution.
+
+    THIS SOFTWARE IS PROVIDED BY SCOTT ROBERT LADD ``AS IS'' AND ANY EXPRESS OR IMPLIED
+    WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+    FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL SCOTT ROBERT LADD OR
+    CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+    SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+    ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+    NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+    ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+    The views and conclusions contained in the software and documentation are those of the
+    authors and should not be interpreted as representing official policies, either expressed
+    or implied, of Scott Robert Ladd.
+
+    2) Closed-Source Proprietary License
+
+    If your project is a closed-source or proprietary project, the Simplified BSD License may
+    not be appropriate or desirable. In such cases, contact the Brahe copyright holder to
+    arrange your purchase of an appropriate license.
+
+    The author can be contacted at:
+
+          scott.ladd@coyotegulch.com
+          scott.ladd@gmail.com
+          http:www.coyotegulch.com
+*/
 
 #include "mathtools.h"
 #include <stdlib.h>
@@ -45,8 +59,9 @@ static int bitrev(const int j, const int nu)
     int j2;
     int j1 = j;
     int k = 0;
+    int i;
 
-    for (int i = 1; i <= nu; i++)
+    for (i = 1; i <= nu; i++)
     {
         j2 = j1 / 2;
         k = 2 * k + j1 - 2 * j2;
@@ -57,53 +72,35 @@ static int bitrev(const int j, const int nu)
 }
 
 // assumes that the length of x is a power of 2
-double * brahe_simple_fft2(const double const * x, const int n)
+double * brahe_simple_fft2(const double * x, const int n)
 {
-    // n is a power of 2
-    int nu = (int)(log(n) / log(2.0)); // BRAHE_LOG_2);
+    int i, l, r;
+    int k = 0;
+    int nu = (int)(log((double)n) / log(2.0)); // BRAHE_LOG_2);
     int n2 = n / 2;
     int nu1 = nu - 1;
-    
     double * xre = (double *)malloc(sizeof(double) * n);
-    
-    if (xre == NULL)
-        return NULL;
-    
     double * xim = (double *)malloc(sizeof(double) * n);
-    
-    if (xim == NULL)
-    {
-        free(xre);
-        return NULL;
-    }
-    
     double * mag = (double *)malloc(sizeof(double) * n / 2);
-    
-    if (mag == NULL)
-    {
-        free(xre);
-        free(xim);
-        return NULL;
-    }
-    
     double tr, ti, p, arg, c, s;
 
-    for (int i = 0; i < n; i++)
+    if ((xre == NULL) || (xim == NULL) || (mag == NULL))
+        return NULL;
+
+    for (i = 0; i < n; i++)
     {
         xre[i] = x[i];
         xim[i] = 0.0;
     }
 
-    int k = 0;
-
-    for (int l = 1; l <= nu; l++)
+    for (l = 1; l <= nu; l++)
     {
         while (k < n)
         {
-            for (int i = 1; i <= n2; i++)
+            for (i = 1; i <= n2; i++)
             {
                 p = bitrev(k >> nu1, nu);
-                arg = 2.0 * BRAHE_PI * p / n;
+                arg = BRAHE_TAU * p / n;
                 c = cos(arg);
                 s = sin(arg);
                 tr = xre[k + n2] * c + xim[k + n2] * s;
@@ -114,17 +111,16 @@ double * brahe_simple_fft2(const double const * x, const int n)
                 xim[k] += ti;
                 k++;
             }
-            
+
             k += n2;
         }
-        
+
         k = 0;
         nu1--;
         n2 = n2 / 2;
     }
 
     k = 0;
-    int r;
 
     while (k < n)
     {
@@ -145,7 +141,7 @@ double * brahe_simple_fft2(const double const * x, const int n)
 
     mag[0] = sqrt(xre[0] * xre[0] + xim[0] * xim[0]) / n;
 
-    for (int i = 1; i < n / 2; i++)
+    for (i = 1; i < n / 2; i++)
         mag[i] = 2 * sqrt(xre[i] * xre[i] + xim[i] * xim[i]) / n;
 
     free(xre);
@@ -154,24 +150,25 @@ double * brahe_simple_fft2(const double const * x, const int n)
     return mag;
 }
 
-double * brahe_simple_fft(const double const * x, const int n)
+double * brahe_simple_fft(const double * x, const int n)
 {
+    int i;
     double * result = NULL;
-    
+
     // create a source array that is a power of 2
     int n2 = brahe_sizepow2(n);
-    
+
     if (n2 != n)
     {
         double * x2 = (double *)malloc(sizeof(double) * n2);
-        
+
         if (x2 != NULL)
         {
             memcpy(x2,x,sizeof(double) * n);
-            
-            for (int i = n; i < n2; ++i)
+
+            for (i = n; i < n2; ++i)
                 x2[i] = 0.0;
-            
+
             result = brahe_simple_fft2(x2,n2);
             free(x2);
         }

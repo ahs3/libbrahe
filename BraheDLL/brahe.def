@@ -1,0 +1,28 @@
+LIBRARY	"Brahe"
+
+EXPORTS
+	brahe_round_nearest
+	brahe_sigdig
+	brahe_lcm
+	brahe_gcf
+	brahe_log2base
+	brahe_sizepow2
+	brahe_pretty_int
+	brahe_get_statistics
+	brahe_moving_average
+	brahe_simple_fft
+	brahe_simple_fft2
+	brahe_make_sinusoid
+	brahe_add_noise
+	brahe_asinh
+	brahe_acosh
+	brahe_atanh
+	brahe_prng_init
+	brahe_prng_free
+	brahe_prng_next
+	brahe_prng_range
+	brahe_prng_index
+	brahe_prng_real1
+	brahe_prng_real2
+	brahe_prng_real3
+	brahe_prng_real53

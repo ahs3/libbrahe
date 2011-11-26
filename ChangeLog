@@ -1,14 +1,52 @@
+2011-07-06 -- version 1.3.2
+    * Fixed stupid error in configure.ac that prevented .so files from being generated
+      on some systems.
+
+    * Removed automatic documentation generation. Use --enable-gendoc with configure to
+      add doxygen commands to the build.
+
+2011-06-27 -- version 1.3.1
+    * Minor cosmetic code changes
+
+    * Fixed typo in licensing information
+
+    * Ensured the licenses are included in distros
+
+2011-06-01 -- version 1.3.0
+    * General code review to prevent bit rot and cruftization
+
+    * Added simple (and I do mean simple) statistical functions for double arrays
+
+    * Moved to Simplified BSD License (FreeBSD)
+
+    * Added functions to create pretty text integers
+
+    * Added BRAHE_TAU constant ( 2 * PI), as per http://tauday.com/
+
+    * New autotools configuration and build scripts for shared and static libraries
+
+    * New Windows DLL and test program projects (Visual Studio 2010)
+
+    * Tested on 32- and 64-bit on both Windows and Linux.
+
+2009-11-19 -- version 1.2.1
+    * Changed "const double const * x" to "const double * x"
+      because C++ (G++ and Visual C++) doesn't like it.
+
+    * Fixed bug when intializing pseudorandom number generator
+      seed from /dev/urandom.
+
 2009-11-18 -- version 1.2.0
     * Added simple FFT function
-    
+
     * improved const correctness
-    
+
     * Added Doxygen documentation
-    
+
     * Moved to GPL 3
-    
+
     * Added moving average function; more statistical stuff planned
-    
+
     * Renamed "Greatest Common Denominator" to "Greatest Common Factor"
 
     * Removed distribution of Visual Studio projects, due to incompatability with C99
