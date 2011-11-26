@@ -1,0 +1,5 @@
+This patch contains all the Debian-specific
+changes mixed together.  The only changes that
+should be here are changes to the regenerated
+autoconf files created during the package
+build process.
