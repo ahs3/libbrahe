@@ -99,6 +99,7 @@ binary-arch: build install
 	dh_installdeb
 	rm -f debian/libbrahe-dev/DEBIAN/shlibs
 	install -m644 debian/shlibs debian/libbrahe-1.3-3/DEBIAN/shlibs
+	sed -i "/dependency_libs/ s/'.*'/''/" `find . -name '*.la'`
 	dh_shlibdeps -plibbrahe-1.3-3
 	dh_shlibdeps -plibbrahe-dev
 	dh_gencontrol
