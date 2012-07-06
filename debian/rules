@@ -15,9 +15,13 @@
 DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 
+CPPFLAGS	:=$(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS		:=$(shell dpkg-buildflags --get CFLAGS)
+CXXFLAGS	:=$(shell dpkg-buildflags --get CXXFLAGS)
+LDFLAGS		:=$(shell dpkg-buildflags --get LDFLAGS)
 
-CFLAGS = -Wall -g
-LDFLAGS = -lm
+CFLAGS 		+= -Wall -g
+LDFLAGS 	+= -lm
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CFLAGS += -O0
