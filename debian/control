@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Al Stone <ahs3@debian.org>
 Build-Depends: debhelper (>= 8.0.0), doxygen, quilt, autotools-dev,
  dh-autoreconf
-Standards-Version: 3.9.2
+Standards-Version: 3.9.6
 
 Package: libbrahe-dev
 Section: libdevel
