@@ -1,8 +1,17 @@
-libbrahe (1.3.2-4) unstable; urgency=medium
+libbrahe (1.3.2-5) unstable; urgency=medium
 
   * Closes: #744601 -- add in dependency on autoreconf
 
  -- ahs3 <ahs3@debian.org>  Mon, 07 Dec 2015 19:58:53 -0700
+
+libbrahe (1.3.2-4) unstable; urgency=low
+
+  * Update Standards-Version 
+  * Remove unneeded dependency on quilt
+  * Correct missing symbols during build by linking with -lm
+  * Clean up lintian errors so that hardening works properly
+
+ -- Al Stone <ahs3@debian.org>  Fri, 06 Jul 2012 16:09:03 -0600
 
 libbrahe (1.3.2-3) unstable; urgency=low
 
