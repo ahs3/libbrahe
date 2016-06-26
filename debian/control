@@ -1,10 +1,11 @@
 Source: libbrahe
-Section: devel
 Priority: optional
 Maintainer: Al Stone <ahs3@debian.org>
-Build-Depends: debhelper (>= 8.0.0), doxygen, quilt, autotools-dev,
- dh-autoreconf
-Standards-Version: 3.9.6
+Build-Depends: debhelper (>=9),autotools-dev,doxygen,quilt,dh-autoreconf
+Standards-Version: 3.9.8
+Section: libs
+Homepage: http://coyotegulch.scottrobertladd.net/products/brahe/index.html
+Vcs-Git: https://github.com/ahs3/libbrahe.git
 
 Package: libbrahe-dev
 Section: libdevel
@@ -27,7 +28,6 @@ Description: heterogeneous C library of numeric functions
  This package contains the files needed to develop code using libbrahe.
 
 Package: libbrahe-1.3-3
-Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: heterogeneous C library of numeric functions

@@ -1,0 +1,12 @@
+# Rename this file to "watch" and then you can run the "uscan" command
+# to check for upstream updates and more.
+# See uscan(1) for format
+
+# Compulsory line, this is a version 4 file
+version=4
+
+# PGP signature mangle, so foo.tar.gz has foo.tar.gz.sig
+#opts="pgpsigurlmangle=s%$%.sig%"
+
+# HTTP site (basic)
+http://coyotegulch.scottrobertladd.net/products/brahe/libbrahe-([\d\.]+)\.tar\.gz debian uupdate
