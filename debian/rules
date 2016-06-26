@@ -26,3 +26,7 @@ override_dh_auto_configure: debian/libbrahe-dev.links
 	autoreconf -vfi
 	dh_auto_configure -- --enable-docgen
 
+override_dh_auto_install:
+	rm -f $(CURDIR)/tmp/usr/share/doc/libbrahe/api/jquery.js
+	dh_auto_install
+

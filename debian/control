@@ -10,7 +10,7 @@ Vcs-Git: https://github.com/ahs3/libbrahe.git
 Package: libbrahe-dev
 Section: libdevel
 Architecture: any
-Depends: libbrahe-1.3-3 (= ${binary:Version}), ${misc:Depends}
+Depends: libbrahe-1.3-3 (= ${binary:Version}), ${misc:Depends}, libjs-jquery
 Description: heterogeneous C library of numeric functions
  This library provides:
  .
