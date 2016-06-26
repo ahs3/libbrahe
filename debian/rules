@@ -24,7 +24,3 @@ override_dh_auto_configure:
 	autoreconf -vfi
 	dh_auto_configure -- --enable-docgen
 
-override_dh_install:
-	dh_install
-	rm -f $(CURDIR)/debian/libbrahe-dev/DEBIAN/shlibs
-
