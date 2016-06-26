@@ -20,6 +20,13 @@
 
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
-#override_dh_auto_configure:
-#	dh_auto_configure -- #	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+override_dh_auto_configure:
+	autoreconf -vfi
+	dh_auto_configure -- \
+		-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH) \
+		--enable-docgen
+
+override_dh_install:
+	dh_install
+	rm -f $(CURDIR)/debian/libbrahe-dev/DEBIAN/shlibs
 
