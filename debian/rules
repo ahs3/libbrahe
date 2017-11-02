@@ -15,7 +15,7 @@
 
 
 %:
-	dh $@  --with autotools_dev
+	dh $@
 
 debian/%.links: debian/%.links.in
 	sed 's/@DEB_HOST_MULTIARCH@/$(DEB_HOST_MULTIARCH)/g' $< > $@
