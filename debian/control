@@ -6,6 +6,7 @@ Standards-Version: 4.1.1
 Section: libs
 Homepage: http://coyotegulch.scottrobertladd.net/products/brahe/index.html
 Vcs-Git: https://github.com/ahs3/libbrahe.git
+Vcs-Browser: https://github.com/ahs3/libbrahe
 
 Package: libbrahe-dev
 Section: libdevel
