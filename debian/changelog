@@ -1,3 +1,9 @@
+libbrahe (1.3.2-8) UNRELEASED; urgency=medium
+
+  * Trim trailing whitespace.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Tue, 24 Aug 2021 04:36:39 -0000
+
 libbrahe (1.3.2-7) unstable; urgency=medium
 
   * Remove use of autotools-dev from debhelper usage
@@ -7,7 +13,7 @@ libbrahe (1.3.2-7) unstable; urgency=medium
 
 libbrahe (1.3.2-6) unstable; urgency=medium
 
-  * Replace debian/rules for reproducible builds. 
+  * Replace debian/rules for reproducible builds.
 
  -- Al Stone <ahs3@debian.org>  Sat, 25 Jun 2016 20:27:12 -0600
 
@@ -19,7 +25,7 @@ libbrahe (1.3.2-5) unstable; urgency=medium
 
 libbrahe (1.3.2-4) unstable; urgency=low
 
-  * Update Standards-Version 
+  * Update Standards-Version
   * Remove unneeded dependency on quilt
   * Correct missing symbols during build by linking with -lm
   * Clean up lintian errors so that hardening works properly
@@ -35,13 +41,13 @@ libbrahe (1.3.2-3) unstable; urgency=low
 
 libbrahe (1.3.2-2) unstable; urgency=low
 
-  * Forgot to put include files in libbrahe-dev; added them in. 
+  * Forgot to put include files in libbrahe-dev; added them in.
 
  -- Al Stone <ahs3@debian.org>  Mon, 28 Nov 2011 19:23:21 -0700
 
 libbrahe (1.3.2-1) unstable; urgency=low
 
-  * New upstream version. 
+  * New upstream version.
   * Lintian fixes: removed article 'a' from short description
   * Lintian fixes: add build-arch build-indep targets to debian/rules
   * Lintian fixes: since autoconf files are regenerated during build

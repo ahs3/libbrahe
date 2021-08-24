@@ -29,4 +29,3 @@ override_dh_auto_configure: debian/libbrahe-dev.links
 override_dh_auto_install:
 	rm -f $(CURDIR)/tmp/usr/share/doc/libbrahe/api/jquery.js
 	dh_auto_install
-

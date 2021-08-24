@@ -22,7 +22,7 @@ Description: heterogeneous C library of numeric functions
    * a few trigonometry functions for finding the inversions of hyperbolic
      sine, cosine, and tangent
  .
- This library is also used by libevocosm, which is in turn the 
+ This library is also used by libevocosm, which is in turn the
  foundation for Acovea, used to determine optimal compiler optimizations
  .
  This package contains the files needed to develop code using libbrahe.
@@ -41,6 +41,5 @@ Description: heterogeneous C library of numeric functions
    * a few trigonometry functions for finding the inversions of hyperbolic
      sine, cosine, and tangent
  .
- This library is also used by libevocosm, which is in turn the 
+ This library is also used by libevocosm, which is in turn the
  foundation for Acovea, used to determine optimal compiler optimizations
-
